@@ -1,3 +1,16 @@
 # docker compose 파일을 완성하고
 # http://localhost로 접속했을 때 서버로부터 온 메시지가 표시되게 만드세요
 version: "3.0"
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80" 
+    depends_on:
+      - backend 
+
+  backend:
+    build: ./backend
+    ports:
+      - "3333:80"
