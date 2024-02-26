@@ -2,3 +2,14 @@
 # http://localhost:3333으로 접속했을 때 hello from server 메시지가 표시되게 만드세요
 
 FROM node:16-alpine
+
+WORKDIR /app
+
+COPY ./package*.json ./
+RUN npm install
+
+COPY . .
+
+CMD ["node", "app.js"]
+
+EXPOSE 80
